@@ -7,6 +7,6 @@ import com.example.fileGateway.entities.FileMediaData;
 import java.util.List;
 
 @Repository
-public interface FileMediaDataRepository extends JpaRepository<FileMediaDataRepository, Long> {
+public interface FileMediaDataRepository extends JpaRepository<FileMediaData, Long> {
     List<FileMediaData> findByOwnerId(Long ownerId);
 }

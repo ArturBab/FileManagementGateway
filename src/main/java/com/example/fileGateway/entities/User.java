@@ -1,5 +1,6 @@
 package com.example.fileGateway.entities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +43,12 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private STATUS status;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt = LocalDateTime.now();    
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<FileMediaData> files = new ArrayList<>();
